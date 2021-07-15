@@ -145,7 +145,7 @@ body::-webkit-scrollbar-thumb:hover
     display:flex;
     align-items: center;
     color: #fff;
-    font-size: 1.8em;
+    font-size: 1.4em;
     padding: 0;
 }
 .node:hover
@@ -205,5 +205,27 @@ body::-webkit-scrollbar-thumb:hover
 {
     box-shadow: 0px -5px 10px 1px rgba(0, 0, 0, 0.5);
     margin-top:1%;
+}
 
+@media screen and (max-width:600px)
+{
+    body
+    {
+        font-size: 18px;
+    }
+
+    .node figure
+    {
+        width: 30%;
+    }
+
+    #header
+    {
+        flex-direction: column;
+    }
+
+    #projects
+    {
+        padding: 2%;
+    }
 }
