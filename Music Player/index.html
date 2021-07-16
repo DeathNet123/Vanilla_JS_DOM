@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vanilla Music</title>
+        <link rel="stylesheet" href="CSS/reset.css">
+        <link rel="apple-touch-icon" sizes="57x57" href="ICONS/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="ICONS/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="ICONS/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="ICONS/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="ICONS/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="ICONS/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="ICONS/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="ICONS/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="ICONS/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes = "192x192" href="ICONS/logo.png">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/index.css">
+        <script defer src="JS/index.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <div id="main_container">
+        <h1>Music Player.</h1>
+            <div id="music_container">
+                <figure id="cover"><img id="imagee" src="IMAGES/FreakingMeOut.jpg" alt="Cover-Image"></figure>
+                <h2 id="title">FreakingMeOut</h2> 
+                <div id="controls">
+                <div id="progress_bar">
+                    <div id="progress_status"></div>
+                </div>
+                
+                <button class = "btn" id="rewind"><i class="material-icons">fast_rewind</i></button>
+                <button class = "btn" id="play"><i class="material-icons">play_arrow</i></button>
+                <button class = "btn" id="forward"><i class="material-icons">fast_forward</i></button>
+                </div>
+            </div>
+             <audio id = "music" src="MUSIC/FreakingMeOut.mp3" controls></audio>
+        </div>
+       
+        <footer id="footer"></footer>
+    </body>
