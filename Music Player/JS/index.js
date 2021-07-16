@@ -25,6 +25,8 @@ const next_btn = document.querySelector('#forward');
 const cover = document.querySelector('#imagee');
 const music = document.querySelector('#music');
 const title = document.querySelector('#title');
+const progress = document.querySelector('#progress_status');
+const progress_bar = document.querySelector('#progress_bar');
 
 //Self-invoking Functions..
 (function ()
@@ -57,6 +59,7 @@ function play_function() // play and pause function..
 
 function prev_songs() //Going to previous song..
 {
+    progress.style.width = "0%";
     if(pointer == 0)
     {
         pointer = total;
@@ -68,12 +71,16 @@ function prev_songs() //Going to previous song..
     cover.src = `IMAGES/${library[keys[pointer]]}.jpg`;
     title.innerHTML = library[keys[pointer]];
     music.src = `MUSIC/${library[keys[pointer]]}.mp3`;
+    let temp = play_btn.innerHTML;
+    temp = temp.replace(/play_arrow|pause/, 'play_arrow');
+    play_btn.innerHTML = temp; 
     play_function();
 
 }
 
-function next_songs()
+function next_songs() // going to next song..
 {
+    progress.style.width = "0%";
     if(pointer == total)
     {
         pointer = 0;
@@ -83,9 +90,28 @@ function next_songs()
     cover.src = `IMAGES/${library[keys[pointer]]}.jpg`;
     title.innerHTML = library[keys[pointer]];
     music.src = `MUSIC/${library[keys[pointer]]}.mp3`;
+    let temp = play_btn.innerHTML;
+    temp = temp.replace(/play_arrow|pause/, 'play_arrow');
+    play_btn.innerHTML = temp; 
     play_function();
 }
+
+function update_progress() // Update progress of the song on the base of the time
+{
+    let temp = Math.floor((music.currentTime / music.duration) * 100);
+    progress.style.width = `${temp}%`;
+} 
+
+function set_progress(e) // will set the progress of the song.
+{
+    let temp = Math.floor(e.offsetX / this.clientWidth  * 100);   
+    progress.style.width = `${temp}%`
+    music.currentTime = (music.duration / 100 )  * temp;
+}
+
 //Event listeners...
 play_btn.addEventListener('click', play_function);
 prev_btn.addEventListener('click', prev_songs);
 next_btn.addEventListener('click', next_songs);
+music.addEventListener('timeupdate', update_progress);
+progress_bar.addEventListener('click', set_progress);

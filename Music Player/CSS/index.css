@@ -133,6 +133,12 @@ body::-webkit-scrollbar-thumb:hover
     -ms-border-radius: 0.3vw;
     -o-border-radius: 0.3vw;
     box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.5) inset;
+    cursor: pointer;
+}
+
+#progress_bar:hover
+{
+    height: 1.5vw;
 }
 #control
 {
