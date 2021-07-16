@@ -7,7 +7,9 @@ const library =
     3: 'MiAmor',
     4: 'SweetMelody',
     5: 'Teeth',
-    6: 'TheRiddle'
+    6: 'TheRiddle',
+    7: 'GhalatFahmi',
+    8: 'TuDuaHai'
 };
 
 //Sorting the keys for the sorted music.....
@@ -17,6 +19,7 @@ keys.sort(() => 0.5 - Math.random());
 //Pointer for the keys array..
 let pointer = 0;
 let total = keys.length - 1; // the last pointer
+let listen = []
 
 //DOMs........
 const play_btn = document.querySelector('#play');
@@ -27,14 +30,29 @@ const music = document.querySelector('#music');
 const title = document.querySelector('#title');
 const progress = document.querySelector('#progress_status');
 const progress_bar = document.querySelector('#progress_bar');
+const list = document.querySelector('#list');
 
 //Self-invoking Functions..
+
+(function ()
+{
+    for(let idx = 0; idx <= total; idx++)
+    {
+        let temp  = `<div class ="inside" id = "${library[keys[idx]]}" onclick = "change_song(this)"><h3>${library[keys[idx]]}</h3></div>`
+        list.innerHTML += temp;
+        listen.push(library[keys[idx]]);
+    }
+})(); //This function will fill list.....
+
 (function ()
 {
     cover.src = `IMAGES/${library[keys[pointer]]}.jpg`;
     music.src = `MUSIC/${library[keys[pointer]]}.mp3`;
     title.innerHTML = library[keys[pointer]];
-})();
+    let temp = title.innerHTML;
+    let first = document.querySelector(`#${temp}`);
+    first.style.background = "rgba(17, 25, 40, 0.9)";
+})(); //This function will set the first song..
 
 //Main Working Functions..
 
@@ -59,6 +77,9 @@ function play_function() // play and pause function..
 
 function prev_songs() //Going to previous song..
 {
+    let temp = title.innerHTML;
+    let first = document.querySelector(`#${temp}`);
+    first.style.background = "transparent"; 
     progress.style.width = "0%";
     if(pointer == 0)
     {
@@ -71,15 +92,20 @@ function prev_songs() //Going to previous song..
     cover.src = `IMAGES/${library[keys[pointer]]}.jpg`;
     title.innerHTML = library[keys[pointer]];
     music.src = `MUSIC/${library[keys[pointer]]}.mp3`;
-    let temp = play_btn.innerHTML;
+    temp = play_btn.innerHTML;
     temp = temp.replace(/play_arrow|pause/, 'play_arrow');
     play_btn.innerHTML = temp; 
     play_function();
-
+    temp = title.innerHTML;
+    first = document.querySelector(`#${temp}`);
+    first.style.background = "rgba(17, 25, 40, 0.9)";
 }
 
 function next_songs() // going to next song..
 {
+    let temp = title.innerHTML;
+    let first = document.querySelector(`#${temp}`);
+    first.style.background = "transparent";
     progress.style.width = "0%";
     if(pointer == total)
     {
@@ -90,10 +116,13 @@ function next_songs() // going to next song..
     cover.src = `IMAGES/${library[keys[pointer]]}.jpg`;
     title.innerHTML = library[keys[pointer]];
     music.src = `MUSIC/${library[keys[pointer]]}.mp3`;
-    let temp = play_btn.innerHTML;
+    temp = play_btn.innerHTML;
     temp = temp.replace(/play_arrow|pause/, 'play_arrow');
     play_btn.innerHTML = temp; 
     play_function();
+    temp = title.innerHTML;
+    first = document.querySelector(`#${temp}`);
+    first.style.background = "rgba(17, 25, 40, 0.9)";
 }
 
 function update_progress() // Update progress of the song on the base of the time
@@ -109,9 +138,16 @@ function set_progress(e) // will set the progress of the song.
     music.currentTime = (music.duration / 100 )  * temp;
 }
 
+function change_song(obj)
+{
+    pointer = listen.indexOf(obj.id) - 1;
+    next_songs();
+}
+
 //Event listeners...
 play_btn.addEventListener('click', play_function);
 prev_btn.addEventListener('click', prev_songs);
 next_btn.addEventListener('click', next_songs);
 music.addEventListener('timeupdate', update_progress);
+music.addEventListener('ended', next_songs);
 progress_bar.addEventListener('click', set_progress);
