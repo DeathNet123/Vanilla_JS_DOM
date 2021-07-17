@@ -20,7 +20,7 @@ keys.sort(() => 0.5 - Math.random());
 let pointer = 0;
 let total = keys.length - 1; // the last pointer
 let listen = []
-
+let flag_for_details = false; //
 //DOMs........
 const play_btn = document.querySelector('#play');
 const prev_btn = document.querySelector('#rewind');
@@ -33,6 +33,7 @@ const progress_bar = document.querySelector('#progress_bar');
 const list = document.querySelector('#list');
 const main_container = document.querySelector('#main_container');
 const music_container = document.querySelector('#music_container');
+const title_cover = document.querySelector('#title_cover');
 
 //Self-invoking Functions..
 
@@ -146,6 +147,23 @@ function change_song(obj) // will change song randomly on selection..
     next_songs();
 }
 
+function show_title_cover()
+{
+    if(window.innerWidth <= 800)
+    {
+        if(!flag_for_details)
+        {
+            title_cover.style.display = "block";
+            flag_for_details = true;
+        }
+        else
+        {
+            title_cover.style.display = 'none';
+            flag_for_details = false;
+        }
+                }
+}
+
 //Event listeners...
 play_btn.addEventListener('click', play_function);
 prev_btn.addEventListener('click', prev_songs);
@@ -153,3 +171,4 @@ next_btn.addEventListener('click', next_songs);
 music.addEventListener('timeupdate', update_progress);
 music.addEventListener('ended', next_songs);
 progress_bar.addEventListener('click', set_progress);
+music_container.addEventListener('click', show_title_cover);

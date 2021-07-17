@@ -246,6 +246,16 @@ body::-webkit-scrollbar-thumb:hover
         display: none;
     }
 
+    #title_cover figure
+    {
+        width: 36%;
+        height: 30vw;
+    }
+
+    #title_cover h2 
+    {   
+        font-size: 1em;
+    }
     #music_container
     {
         position: fixed;
@@ -254,12 +264,18 @@ body::-webkit-scrollbar-thumb:hover
         width: 100%;
         background-color: rgba(17, 25, 40, 0.64);
         padding: 2%;;
+        z-index: 1;
     }
 
     #progress_bar
     {
         height: 3vw;
         width: 100%;
+    }
+
+    #progress_bar:hover
+    {
+        height: 3.5vw;
     }
 
     .material-icons
