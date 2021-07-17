@@ -31,6 +31,8 @@ const title = document.querySelector('#title');
 const progress = document.querySelector('#progress_status');
 const progress_bar = document.querySelector('#progress_bar');
 const list = document.querySelector('#list');
+const main_container = document.querySelector('#main_container');
+const music_container = document.querySelector('#music_container');
 
 //Self-invoking Functions..
 
@@ -138,7 +140,7 @@ function set_progress(e) // will set the progress of the song.
     music.currentTime = (music.duration / 100 )  * temp;
 }
 
-function change_song(obj)
+function change_song(obj) // will change song randomly on selection..
 {
     pointer = listen.indexOf(obj.id) - 1;
     next_songs();
