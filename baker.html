@@ -1,0 +1,320 @@
+<body>
+    <header id="header">
+      <figure id="header_image_container">
+        <img src = "https://raw.githubusercontent.com/DeathNet123/Vanilla_JS_DOM/27aa71044e8cbe25cf85ccf6178e6dfc00f915e3/Icons/Arslan-Iftikhar-signature.jpg" alt = "logo" id="header-img"></figure>
+      <nav id="nav-bar">
+        <a href="#developer" class="nav-link">Developer</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#pricing" class="nav-link">Pricing</a> 
+        </nav>
+    </header>
+    <div id="main_container">
+      <section id="about">
+        <h1>About</h1>
+        <p>Introducing the Vanila Music Player which is built with HTML, CSS and JavaScript having Fuild like experience with your favourite songs on the list. We like things to be simple because simplicity leads towards elegance. A music player for every one.</p>
+        <h2>Features</h2>
+        <p>
+  We added the features which are required the most and skip the useless features added to new music players now a days in order to avoid the complexity and start trends towards simplicity.
+        <ul>
+          <li>Play</li>
+          <li>Pause</li>
+          <li>Skip Next</li>
+          <li>Skip Back</li>
+          <li>Select Random</li>
+          </ul>
+            We Know what exactly you need because Vanilla Music Player is from Developer for Developers so that you can code with your favourite beat. 
+        </p>
+      <figure id="screenshot"><img src="https://github.com/DeathNet123/Vanilla_JS_DOM/blob/main/image.png?raw=true" alt="screenshot"</figure>
+      </section>
+      <section id="developer">
+        <h1>Developer</h1>
+        <p>Hi, I am Arslan I am Computer Science Student having interest in OS Development, Cyber Security, Web Development and Game Development. There is nothing much to say about myself I am just a Dumb Professional. You can see my other Vanila Project <a href="https://deathnet123.github.io/Vanilla_JS_DOM/">here.</a></p>
+      </section>
+      <section id="pricing">
+        <h1>Pricing</h1>
+        <p>We Know how important Developer Community is for other developers that is why we want our Community to grow and work effectively consider this Music Player as our Contribution to our Developer Community. You can use this Player free of charge and we can add song on your request too.</p>
+      </section>
+      <div id="video_container">
+        <h1>Vanila Music Player in Action</h1>
+      <video id="video" src="https://1drv.ms/v/s!AsIo6R_HV5Dpnzki2FJb8-YuR-e2">
+        
+      </video>
+      </div>
+      <section id="want_more">
+        <h1>Want to add your own Music.</h1>
+        <p>If you want to add your favourite music on our Player you can fill this form to let us know.</p>
+        <form id="b_form" action ="https://www.freecodecamp.com/email-submit">
+          <fieldset>
+            <legend>Request Song</legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder = "Arslan Iftikhar"><br>
+          <label for="music_name">Music Name: </label>
+          <input type="text" id="music_name" placeholder = "Kings and Queens">
+          <br>
+          <label for="artist_name">Artist Name: </label>
+          <input type="text" id="artist_name" placeholder = "Ava Max"><br>
+         
+          <input type = "submit">
+          </fieldset>
+        </form>
+      </section>
+      <p id="bake">Do you want to receive notification when new Song is added to our Library ?</p>
+      <form id="form" action = "https://www.freecodecamp.com/email-submit">
+         <label for="email">Email: </label><br>
+         <input name="email" type="email" id="email" placeholder = "arslan.computer2002@gmail.com"><input type = "submit" id="submit">
+      </form>
+    </div>
+    <footer id="footer">
+      <div id="end_line">All Rights Reserved &copy 2021 Arslan Iftikhar</div></footer>
+  </body>
+  
+  <style>
+  
+  :root
+  {
+    --silver:#848484;
+      --little-dark-scrollbar:#C0C0C0;
+  }
+  html
+  {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: cursive
+  }
+  *
+  {
+    box-sizing: border-box;
+  }
+  #main_container
+  {
+    min-height: 100vh;
+    margin: 0;
+  }
+  body
+  {
+    margin: 0;
+    padding: 0;
+    background-color: #A89C94FF;
+  }
+  body::-webkit-scrollbar 
+  {
+      width: 11px;
+  }
+    
+    /* Track */
+  body::-webkit-scrollbar-track 
+  {
+      background: #f5f5f5; 
+  }
+     
+    /* Handle */
+  body::-webkit-scrollbar-thumb 
+  {
+      background: var(--little-dark-scrollbar); 
+  }
+  #header
+  {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: space-around;
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+  #header-img
+  {
+    width: 100%;
+    height: auto;
+    border-radius: 3vw;
+  }
+  
+  #header_image_container
+  {
+    margin: 0;
+    padding: 0;
+    width: 15vw;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    border-radius: 3vw;
+  }
+  #header_image_container:hover
+  {
+    width: 19vw;
+    transform: rotate(10deg);
+    box-shadow: 0px 3px 5px 5px rgba(0,0,0,0.2);
+  }
+  .nav-link
+  {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    transition: font-size 0.2s linear;
+  
+  }
+  .nav-link:hover
+  {
+    font-size: 1.3em;
+  }
+  #nav-bar
+  {
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+  }
+  #footer
+  {
+    text-align: center;
+    background-color: #ccc;
+    margin: 0;
+    padding: 1%;
+    box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.3);
+  }
+  #about
+  {
+    text-align: center;
+  }
+  #about h1
+  {
+    font-size: 2em;
+  }
+  #about h2
+  {
+    font-size: 1.4em;
+  }
+  #about p
+  {
+    padding: 2%;
+    font-size: 1.1em;
+  }
+  
+  #about ul
+  {
+    text-align: left;
+  }
+  
+  #screenshot
+  {
+    padding: 0;
+    margin: 0 auto;
+    width: 65vw;
+    box-shadow: 0px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    cursor:pointer;
+    transition: all 0.3s ease-in;
+    border-radius: 2vw;
+  }
+  #screenshot:hover
+  {
+    width: 70vw;
+  }
+  #screenshot img
+  {
+    width: 100%;
+    height: auto;
+    border-radius: 2vw;
+  }
+  
+  #developer 
+  {
+    text-align:center;
+  }
+  #developer h1
+  {
+    font-size: 2em;
+  }
+  #developer p
+  {
+    padding: 2%;
+    font-size: 1.1em;
+  }
+  
+  #pricing
+  {
+    text-align:center;
+  }
+  #pricing h1
+  {
+    font-size: 2em;
+  }
+  #pricing p
+  {
+    padding: 2%;
+    font-size: 1.1em;
+  }
+  #video_container
+  {
+    text-align: center;
+    font-size: 1.1em;
+  }
+  
+  h1:first-letter
+  {
+    color: white;
+    font-size: 1.4em;
+  }
+  
+  #video
+  {
+    width: 70vw;
+    height: auto;
+    box-shadow: 0px 3px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 2vw;
+  }
+  #want_more
+  {
+    text-align: center;
+  }
+  #want_more h1
+  {
+    font-size: 2em;
+  }
+  
+  #b_form
+  {
+    text-align: center;
+    margin: 0 auto;
+    width: 80vw;
+  }
+  
+  input
+  {
+    line-height: 2;
+    font-family: cursive;
+    padding: 0.5%;
+    border-radius: 1vw;
+    border: none;
+    background-color: #ccc;
+    margin: 1%;
+  }
+  input:focus
+  {
+    outline: none;  
+  }
+  fieldset
+  {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3em;
+    border: 3px inset rgba(0,0 ,0 ,0.3);
+    width: 100%;
+  }
+  
+  #submit
+  {
+    cursor: pointer
+  }
+  
+  #bake
+  {
+    text-align: center;
+  }
+  
+  #form
+  {
+    text-align: center;
+  }
+  
+  </style>
