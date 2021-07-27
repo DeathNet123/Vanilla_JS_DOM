@@ -46,7 +46,7 @@ body
     overflow-y: scroll;
     width: 80%;
     margin: 0 auto;
-    height: 30vh;
+    font-family: consolas, "Courier New";
     text-align:left;
     border-radius: 1.3vw;
     -webkit-border-radius: 1.3vw;
@@ -104,4 +104,9 @@ body
 .variable
 {
     color: rgb(192, 159, 188);
+}
+
+.reserved
+{
+    color: rgb(38, 38, 197);
 }
