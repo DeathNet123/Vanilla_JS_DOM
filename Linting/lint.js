@@ -1,5 +1,6 @@
 
 const button = document.querySelector('#lint');
+const cop = document.querySelector('#copy');
 let all_variables = [];
 let all_data_type_created = [];
 
@@ -112,5 +113,29 @@ function lint_it()
     document.querySelector("#textareas").value = texts;
 }
 
+function copyit()
+{
+    const temp = document.querySelector('#textareas');
+    temp.focus();
+    temp.select();
+    try {
+
+        // The important part (copy selected text)
+        var ok = document.execCommand('copy');
+ 
+        if (ok) cop.innerHTML = 'Copied!';
+        else    cop.innerHTML = 'Unable to copy!';
+    } catch (err) {
+        cop.innerHTML = 'Unsupported Browser!';
+    }
+}
+
+function change()
+{
+    cop.innerHTML = "Copy"
+}
+
 //event listeners
 button.addEventListener('click', lint_it);
+copy.addEventListener('click', copyit);
+cop.addEventListener('mouseleave', change)

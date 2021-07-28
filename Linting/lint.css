@@ -7,6 +7,12 @@
 {
     box-sizing: border-box;
 }
+
+::selection
+{
+    background-color: rgba(17, 25, 40, 0.64);
+    color: white;
+}
 html
 {
     scroll-behavior: smooth;
@@ -59,7 +65,8 @@ body
 {
     display: none;
 }
-#lint
+
+.btn
 {
     display: block;
     width: 70%;
@@ -77,8 +84,12 @@ body
     -ms-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
 }
+#lint
+{
+    
+}
 
-#lint:hover
+.btn:hover
 {
     background-color: rgba(3, 49, 63, 0.9);
     color: white;
@@ -91,6 +102,24 @@ body
     color: white;
 }
 
+
+textarea::-webkit-scrollbar
+{
+    display: none;
+}
+
+#textareas
+{
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.5);
+    background-color: rgba(250, 240, 255, 0.7);
+    width: 70vw;
+    height: 30vw;
+}
+#textareas:focus
+{
+    border: none;
+    outline: none;
+}
 .main_color
 {
     color: rgb(115, 230, 115) !important;
