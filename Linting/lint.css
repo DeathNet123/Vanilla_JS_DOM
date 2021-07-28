@@ -60,7 +60,28 @@ p
     min-height: 100vh;
     padding: 2%;
 }
+a
+{
+    text-decoration: none;
+    background-color:rgba(236, 216, 216, 0.3);
+    display: block;
+    color: rgba(3, 49, 63, 0.3);
+    padding: 2%;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 1vw;;
+    -webkit-border-radius: 1vw;
+    -moz-border-radius: 1vw;
+    -ms-border-radius: 1vw;
+    -o-border-radius: 1vw;
+    transition: all 0.3s linear;
+}
 
+a:hover
+{
+    background-color:rgba(131, 109, 109, 0.9);
+    color: white;
+}
 #textarea
 {
     line-height: 1.5;
@@ -124,6 +145,8 @@ p
     background-color: rgba(3, 49, 63, 0.9);
     color: white;
     outline: none;
+    padding: 1.4%;
+    width: 73%;
 }
 #footer
 {

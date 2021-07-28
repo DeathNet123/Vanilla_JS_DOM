@@ -16,4 +16,5 @@
 .main_color
 {
     color: rgb(115, 230, 115) !important;
+    font-family: consolas, "Courier New";
 }
