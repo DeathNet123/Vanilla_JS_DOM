@@ -202,7 +202,29 @@ textarea::-webkit-scrollbar
         padding: 2%;
     }
 
-    #textareas
+    .btn
+    {
+        font-size: 1.2em;
+        padding: 1.3%;
+    }
+
+    #textareas, #textarea
+    {
+        font-size: 3vw;
+        width: 90%;
+        padding: 2%;
+    }
+
+    #main_container
+    {
+        text-align: center !important;
+    }
+
+    p
+    {
+        padding: 1.5%;
+    }
+    #code
     {
         width: 90%;
     }
