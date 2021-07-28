@@ -60,7 +60,7 @@ function clean_array(array)
 
 function clean_text(text)
 {
-    text = text.replace(/</, '&lt');
+    text = text.replace(/</g, '&lt');
     text = text.replace(/>/g, '&gt');
     return text;
 }
@@ -103,11 +103,13 @@ function lint_it()
     
     for(let idx = 0; idx < taste_variable.length; idx++)
     {
-        let reg = new RegExp(`[^>]\s*?${taste_variable[idx]}`, 'g');
-        texts = texts.replace(reg, '<span class="variable">$&</span>');
+        let reg = new RegExp(`([^>]|\\s*)(\\s*\\*?${taste_variable[idx]})`, 'g');
+        console.log(reg);
+        texts = texts.replace(reg, '$1<span class="variable">$2</span>');
     }
     
     code.innerHTML = texts;
+    document.querySelector("#textareas").value = texts;
 }
 
 //event listeners
