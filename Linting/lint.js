@@ -132,7 +132,7 @@ function copyit()
 
 function change()
 {
-    cop.innerHTML = "Copy"
+    cop.innerHTML = "<i class ='fa fa-copy'></i> Copy</button>";
 }
 
 //event listeners

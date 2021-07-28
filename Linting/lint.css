@@ -75,6 +75,10 @@ p
     -o-border-radius: 1vw;
 }
 
+#textarea:focus
+{
+    outline: none;
+}
 #code
 {
     background-color: black;
