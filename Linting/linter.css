@@ -1,0 +1,19 @@
+.data_type
+{
+    color: rgb(204, 204, 241);
+}
+
+.variable
+{
+    color: rgb(192, 159, 188);
+}
+
+.reserved
+{
+    color: rgb(63, 63, 228);
+}
+
+.main_color
+{
+    color: rgb(115, 230, 115) !important;
+}

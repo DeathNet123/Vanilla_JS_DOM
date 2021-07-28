@@ -110,7 +110,7 @@ function lint_it()
     }
     
     code.innerHTML = texts;
-    document.querySelector("#textareas").value = texts;
+    document.querySelector("#textareas").value = '<pre><div class="main_color">'+ texts + '</div></pre>';
 }
 
 function copyit()

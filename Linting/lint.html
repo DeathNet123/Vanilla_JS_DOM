@@ -6,20 +6,24 @@
         <meta name="description" content="This will do linting test">
         <meta name="author" content="Arslan Iftikhar">
         <meta name="keywords" content="linting cpp c++ color">
+        <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="lint.css">
         <script defer src="lint.js"></script>
     </head>
     <body>
         <header id="header"><h1>The Linter</h1></header>
         <div id="main_container">
+            <h2>Usage</h2>
+            <p>Copy and Paste the given linter.css file and place it in folder with all of your other css files and attach this stylesheet like others .Enter the c++ code you wanted to be lit in the given textarea then press the Lint Button it the black box will show how your code will look like and the text area at bottom will show the html code copy the html code and paste it in your html file.</p>
+            <p>You can style the div by adding extra class in a way you like. But we recommend setting the <code class="in_sen">background-color: black</code> as it will look however you can choose your own also you can edit linter.css to change color of data_type, variables and reserved words.</p>
             <h3>Add your code here:</h3>
-            <textarea id="textarea" rows="15" cols = "100"></textarea>
+            <textarea id="textarea" rows="15" cols = "90"></textarea>
             <button id="lint" class="btn">Lint</button>
             <h3>Code after being linted.</h3>
             <pre>
             <div id="code" class="main_color"></div>
             </pre>
-            <textarea id="textareas" class="main_color" rows="15" cols = "100"></textarea>
+            <textarea id="textareas" class="main_color" rows="15" cols = "90"></textarea>
             <button class="btn" id="copy">Copy</button>
         </div>
         <footer id="footer">All rights Reserved &copy; 2021 Arslan Iftikhar.</footer>
