@@ -81,8 +81,10 @@ function lint_reserved(text)
 function comments_clean(match)
 {
     match = match.replace(/<span class='data_type'>/, '');
+    match = match.replace(/<span class='reserved'>/, '');
+    match = match.replace(/<span class='variable'>/, '');
     match = match.replace(/<\/span>/, '');
-    return `<span class="comments">${match}</span>`
+    return `<span class='comments'>${match}</span>`
 }
 
 function lint_it()
@@ -102,7 +104,7 @@ function lint_it()
         texts = texts.replace(reg, "<span class='data_type'>$&</span>")
     }
     texts = texts.replace(/#include/, "<span class='variable'>$&</span>");
-    texts = texts.replace(/&lt[a-zA-Z.\\]&gt/, "<span class='data_type'>$&</span>");
+    texts = texts.replace(/&lt[a-zA-Z.\\]*&gt/, "<span class='data_type'>$&</span>");
     texts = texts.replace(/(using)\s+(namespace)\s+(std)\s*;/, "<span class='data_type'>$1 </span><span class='variable'>$2 </span>$3;");
     texts = texts.replace(data_type, "<span class='data_type'>$&</span>");
     texts = texts.replace(/(<span class='data_type'>(int\*?|float\*?|bool\*?|double\*?|string\*?)<\/span>\s*)(\*?\s*\w+\s*?)(;|=\s*[0-9a-zA-z\"]*\s*;|,|\)|=\s*[a-z_]*\s*;)/g, add_must);
@@ -116,11 +118,10 @@ function lint_it()
         texts = texts.replace(reg, "$1<span class='variable'>$2</span>");
     }
     
-    texts = texts.replace(/\/\*[\s\S]*\*\//gm, comments_clean); //Multiline comments fixed...
-    texts = texts.replace(/\/\/[a-zA-z .'"\/\\\?]*/g, '<span class = "comments">$&</span>');
+    texts = texts.replace(/\/\*[\s\S]*\*\//gm, comments_clean); 
+    texts = texts.replace(/\/\/[a-zA-z .'"\/\\\?]*/g, "<span class='comments'>$&</span>");
     texts = texts.replace(/\"[\s\S]*\"/g, "<span classs='strings'>$&</span>");
-    texts = texts.replace(/\'\\?[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]'/g, '<span classs="strings">$&</span>');
-    texts = texts.replace(/classs/g, 'class');
+    texts = texts.replace(/\'\\?[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]\'/g, "<span classs='strings'>$&</span>");
     code.innerHTML = texts;
     document.querySelector("#textareas").value = '<pre><div class="main_color">'+ texts + '</div></pre>';
 }
