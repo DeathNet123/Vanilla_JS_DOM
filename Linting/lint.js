@@ -120,8 +120,8 @@ function lint_it()
     
     texts = texts.replace(/\/\*[\s\S]*\*\//gm, comments_clean); 
     texts = texts.replace(/\/\/[a-zA-z .'"\/\\\?]*/g, "<span class='comments'>$&</span>");
-    texts = texts.replace(/\"[\s\S]*\"/g, "<span classs='strings'>$&</span>");
-    texts = texts.replace(/\'\\?[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]\'/g, "<span classs='strings'>$&</span>");
+    texts = texts.replace(/\"[\s\S]*\"/g, "<span class='strings'>$&</span>");
+    texts = texts.replace(/\'\\?[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]\'/g, "<span class='strings'>$&</span>");
     code.innerHTML = texts;
     document.querySelector("#textareas").value = '<pre><div class="main_color">'+ texts + '</div></pre>';
 }
