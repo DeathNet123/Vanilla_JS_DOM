@@ -205,12 +205,23 @@ textarea::-webkit-scrollbar
 
 .reserved
 {
-    color: rgb(63, 63, 228);
+    color: rgb(117, 102, 250);
 }
 
 .main_color
 {
     color: rgb(115, 230, 115) !important;
+}
+
+.comments
+{
+    color: rgb(160, 168, 142);
+    font-style: italic !important;
+}
+
+.strings
+{
+    color: rgb(236, 6, 6);
 }
 
 @media only screen and (max-width: 800px)

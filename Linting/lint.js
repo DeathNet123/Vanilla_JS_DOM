@@ -72,10 +72,17 @@ function lint_reserved(text)
     for(let idx = 0; idx < resreve.length; idx++)
     {
         let reg = new RegExp(`\\b${resreve[idx]}\\b`, 'g');
-        text = text.replace(reg, '<span class="reserved">$&</span>');   
+        text = text.replace(reg, "<span class='reserved'>$&</span>");   
     }
 
     return text;
+}
+
+function comments_clean(match)
+{
+    match = match.replace(/<span class='data_type'>/, '');
+    match = match.replace(/<\/span>/, '');
+    return `<span class="comments">${match}</span>`
 }
 
 function lint_it()
@@ -92,23 +99,28 @@ function lint_it()
     for(let idx = 0; idx < all_data_type_created.length; idx++)
     {
         let reg   = new RegExp(`${all_data_type_created[idx]}`, 'g');
-        texts = texts.replace(reg, '<span class="data_type">$&</span>')
+        texts = texts.replace(reg, "<span class='data_type'>$&</span>")
     }
-    texts = texts.replace(/#include/, '<span class="variable">$&</span>');
-    texts = texts.replace(/&lt\w+&gt/, '<span class="data_type">$&</span>');
-    texts = texts.replace(/(using)\s+(namespace)\s+(std)\s*;/, '<span class="data_type">$1 </span><span class="variable">$2 </span>$3;');
-    texts = texts.replace(data_type, '<span class="data_type">$&</span>');
-    texts = texts.replace(/(<span class="data_type">(int\*?|float\*?|bool\*?|double\*?)<\/span>\s*)(\*?\s*\w+\s*?)(;|=\s*[0-9]*\s*;|,|\)|=\s*[a-z_]*\s*;)/g, add_must);
-    
+    texts = texts.replace(/#include/, "<span class='variable'>$&</span>");
+    texts = texts.replace(/&lt[a-zA-Z.\\]&gt/, "<span class='data_type'>$&</span>");
+    texts = texts.replace(/(using)\s+(namespace)\s+(std)\s*;/, "<span class='data_type'>$1 </span><span class='variable'>$2 </span>$3;");
+    texts = texts.replace(data_type, "<span class='data_type'>$&</span>");
+    texts = texts.replace(/(<span class='data_type'>(int\*?|float\*?|bool\*?|double\*?|string\*?)<\/span>\s*)(\*?\s*\w+\s*?)(;|=\s*[0-9a-zA-z\"]*\s*;|,|\)|=\s*[a-z_]*\s*;)/g, add_must);
+    texts = texts.replace(/(<span class='data_type'>(int\*?|float\*?|bool\*?|double\*?|string\*?)<\/span>\s*)(\*?\s*\w+\s*?)(;|=\s*[a-zA-Z0-9!@#\$%\^\&*\)\(+=._\-\"\s]*\s*;|,|\)|=\s*[a-z_]*\s*;)/g, add_must);
     let taste_variable = clean_array(all_variables);
     
     for(let idx = 0; idx < taste_variable.length; idx++)
     {
         let reg = new RegExp(`([^>]|\\s*)(\\s*\\*?${taste_variable[idx]})`, 'g');
         console.log(reg);
-        texts = texts.replace(reg, '$1<span class="variable">$2</span>');
+        texts = texts.replace(reg, "$1<span class='variable'>$2</span>");
     }
     
+    texts = texts.replace(/\/\*[\s\S]*\*\//gm, comments_clean); //Multiline comments fixed...
+    texts = texts.replace(/\/\/[a-zA-z .'"\/\\\?]*/g, '<span class = "comments">$&</span>');
+    texts = texts.replace(/\"[\s\S]*\"/g, "<span classs='strings'>$&</span>");
+    texts = texts.replace(/\'\\?[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]'/g, '<span classs="strings">$&</span>');
+    texts = texts.replace(/classs/g, 'class');
     code.innerHTML = texts;
     document.querySelector("#textareas").value = '<pre><div class="main_color">'+ texts + '</div></pre>';
 }
